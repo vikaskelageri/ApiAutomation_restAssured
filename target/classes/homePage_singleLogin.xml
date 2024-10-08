@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+    <!-- Register both ExtentReporter and TestListener -->
+    <listeners>
+        <listener class-name="listeners.ExtentReporterNG"/> <!-- Existing ExtentReporter -->
+    </listeners>
+
+    <test thread-count="5" name="TestAllButtonsInSingleLogin">
+        <classes>
+            <class name="testCases.HomePageTest">
+                <methods>
+                    <include name="testAllButtonsInSingleLogin"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
