@@ -5,6 +5,9 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+
+import java.nio.file.Paths;
+
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -38,13 +41,17 @@ public class ExtentReporterNG implements ITestListener {
 
     @Override
     public void onStart(ITestContext context) {
-        ExtentSparkReporter reporter = new ExtentSparkReporter("extentReport.html");
+    	// Ensure the path is under the test-output folder
+        String reportPath = Paths.get(System.getProperty("user.dir"), "test-output", "extentReport.html").toString();
+
+        ExtentSparkReporter reporter = new ExtentSparkReporter(reportPath);
         reporter.config().setReportName("Automation Test Results");
         reporter.config().setDocumentTitle("Test Results");
 
+
         extent = new ExtentReports();
         extent.attachReporter(reporter);
-        extent.setSystemInfo("Tester", "YourName");
+        extent.setSystemInfo("Tester", "Abhishek");
     }
 
     @Override
