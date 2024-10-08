@@ -6,6 +6,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
+import java.io.IOException;
 import java.nio.file.Paths;
 
 import org.testng.ITestContext;
@@ -16,7 +17,7 @@ import util.Utilities;
 public class ExtentReporterNG implements ITestListener {
 
     ExtentReports extent;
-    public static ExtentTest test;  // Ensure it's accessible in other classes
+    public static ExtentTest test;  // Make ExtentTest accessible in other classes
 
     @Override
     public void onTestStart(ITestResult result) {
@@ -32,6 +33,11 @@ public class ExtentReporterNG implements ITestListener {
     public void onTestFailure(ITestResult result) {
         test.log(Status.FAIL, "Test Failed");
         test.fail(result.getThrowable());
+
+        // Capture the screenshot when a test fails and attach it to the report
+        String screenshotPath = Utilities.captureScreenshot(result.getMethod().getMethodName());
+        // Attach the screenshot to the Extent Report
+		test.addScreenCaptureFromPath(screenshotPath);
     }
 
     @Override
@@ -41,14 +47,15 @@ public class ExtentReporterNG implements ITestListener {
 
     @Override
     public void onStart(ITestContext context) {
-    	// Ensure the path is under the test-output folder
+        // Specify the report path under the test-output folder
         String reportPath = Paths.get(System.getProperty("user.dir"), "test-output", "extentReport.html").toString();
 
+        // Create an ExtentSparkReporter for generating the report
         ExtentSparkReporter reporter = new ExtentSparkReporter(reportPath);
         reporter.config().setReportName("Automation Test Results");
         reporter.config().setDocumentTitle("Test Results");
 
-
+        // Initialize ExtentReports
         extent = new ExtentReports();
         extent.attachReporter(reporter);
         extent.setSystemInfo("Tester", "Abhishek");
