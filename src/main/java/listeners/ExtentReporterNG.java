@@ -35,7 +35,8 @@ public class ExtentReporterNG implements ITestListener {
         test.fail(result.getThrowable());
 
         // Capture the screenshot when a test fails and attach it to the report
-        String screenshotPath = Utilities.captureScreenshot(result.getMethod().getMethodName());
+//        String screenshotPath = Utilities.captureScreenshot(result.getMethod().getMethodName());
+        String screenshotPath = Utilities.captureScreenshotAsBase64();
         // Attach the screenshot to the Extent Report
 		test.addScreenCaptureFromPath(screenshotPath);
     }
