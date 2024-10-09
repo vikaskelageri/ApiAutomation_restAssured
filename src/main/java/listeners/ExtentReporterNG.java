@@ -1,12 +1,10 @@
 package listeners;
 
-import base.TestBase;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
-import java.io.IOException;
 import java.nio.file.Paths;
 
 import org.testng.ITestContext;
@@ -33,12 +31,11 @@ public class ExtentReporterNG implements ITestListener {
     public void onTestFailure(ITestResult result) {
         test.log(Status.FAIL, "Test Failed");
         test.fail(result.getThrowable());
-
         // Capture the screenshot when a test fails and attach it to the report
-//        String screenshotPath = Utilities.captureScreenshot(result.getMethod().getMethodName());
-        String screenshotPath = Utilities.captureScreenshotAsBase64();
+        String base64Screenshot = Utilities.captureScreenshotAsBase64();
         // Attach the screenshot to the Extent Report
-		test.addScreenCaptureFromPath(screenshotPath);
+        test.addScreenCaptureFromBase64String(base64Screenshot, "Test Failure Screenshot");
+        
     }
 
     @Override

@@ -129,15 +129,15 @@
                   <a name="testAllButtonsInSingleLogin">
                   </a> <!-- testAllButtonsInSingleLogin -->
                   <span class="method-name">testAllButtonsInSingleLogin</span>
-                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//div[text()=&apos;Orhder&apos;]&quot;}
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//div[text()=&apos;Trucking Time Sheets: &apos;]&quot;}
   (Session info: chrome=129.0.6668.90)
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: &apos;4.25.0&apos;, revision: &apos;8a8aea2337&apos;
 System info: os.name: &apos;Mac OS X&apos;, os.arch: &apos;aarch64&apos;, os.version: &apos;15.0.1&apos;, java.version: &apos;22.0.2&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [3df0bef30c87cbee43451b0ede9bb771, findElement {value=//div[text()=&apos;Orhder&apos;], using=xpath}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 129.0.6668.90, chrome: {chromedriverVersion: 129.0.6668.89 (951c0b97221f..., userDataDir: /var/folders/05/hlp4h6ss30g...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52050}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:52050/devtoo..., se:cdpVersion: 129.0.6668.90, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 3df0bef30c87cbee43451b0ede9bb771
+Command: [cab897d06b8dd2c2b3bdc8162183bb89, findElement {value=//div[text()=&apos;Trucking Time Sheets: &apos;], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 129.0.6668.90, chrome: {chromedriverVersion: 129.0.6668.91 (b00bc8b76d60..., userDataDir: /var/folders/05/hlp4h6ss30g...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55016}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:55016/devtoo..., se:cdpVersion: 129.0.6668.90, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: cab897d06b8dd2c2b3bdc8162183bb89
 	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
@@ -152,8 +152,8 @@ Session ID: 3df0bef30c87cbee43451b0ede9bb771
 	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
 	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
 	at jdk.proxy2/jdk.proxy2.$Proxy14.isDisplayed(Unknown Source)
-	at pages.PlaceOrderPage.isHeaderDisplayed(PlaceOrderPage.java:13)
-	at testCases.HomePageTest.testAllButtonsInSingleLogin(HomePageTest.java:80)
+	at pages.DriverEnterPage.isHeaderDisplayed(DriverEnterPage.java:13)
+	at testCases.HomePageTest.testAllButtonsInSingleLogin(HomePageTest.java:193)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
 ... Removed 28 stack frames
 </div> <!-- stack-trace -->
@@ -224,12 +224,12 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'testAllButtonsInSingleLogin')
 data.setCell(0, 2, 'testCases.HomePageTest')
-data.setCell(0, 3, 25749);
+data.setCell(0, 3, 53705);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 25 seconds</span>
+              <span class="suite-total-time">Total running time: 53 seconds</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -250,55 +250,55 @@ return data;
             <div class="ignored-class-div">
               <span class="ignored-class-name">testCases.HomePageTest</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">clickOnPlaceOrderTest</span>
-                <br/>
-                <span class="ignored-method-name">clickOnTruckManagementTest</span>
-                <br/>
-                <span class="ignored-method-name">clickOnSendTextMessageTest</span>
-                <br/>
-                <span class="ignored-method-name">clickOnViewTemplateTest</span>
-                <br/>
-                <span class="ignored-method-name">updatedLinkTest</span>
+                <span class="ignored-method-name">clickOnDriverEnterTest</span>
                 <br/>
                 <span class="ignored-method-name">clickOnUpdateTimesheetsTest</span>
                 <br/>
-                <span class="ignored-method-name">clickOnEditJobDetailsTest</span>
-                <br/>
-                <span class="ignored-method-name">clickOnUpdatedTest</span>
-                <br/>
-                <span class="ignored-method-name">clickOnMyLaborAssignmentsTest</span>
-                <br/>
-                <span class="ignored-method-name">clickOnReturnItemsTest</span>
-                <br/>
-                <span class="ignored-method-name">clickOnDashboardTest</span>
-                <br/>
-                <span class="ignored-method-name">clickOnBackFromRepairTest</span>
-                <br/>
-                <span class="ignored-method-name">clickOnAdminTest</span>
-                <br/>
-                <span class="ignored-method-name">clickOnJobSummaryTest</span>
-                <br/>
                 <span class="ignored-method-name">clickOnCreateNewJobTest</span>
-                <br/>
-                <span class="ignored-method-name">clickOnCancellationHolidayTest</span>
-                <br/>
-                <span class="ignored-method-name">clickOnOrderForYardTest</span>
                 <br/>
                 <span class="ignored-method-name">clickOnScheduleLaborTest</span>
                 <br/>
                 <span class="ignored-method-name">clickOnImportEmployeeReportCsvTest</span>
                 <br/>
-                <span class="ignored-method-name">clickOnDatabaseTest</span>
+                <span class="ignored-method-name">clickOnJobSummaryTest</span>
                 <br/>
-                <span class="ignored-method-name">clickOnHoursSummaryExportTest</span>
+                <span class="ignored-method-name">clickOnUpdatedTest</span>
                 <br/>
-                <span class="ignored-method-name">clickOnCheckOutItemsTest</span>
+                <span class="ignored-method-name">clickOnViewTemplateTest</span>
+                <br/>
+                <span class="ignored-method-name">clickOnTruckManagementTest</span>
+                <br/>
+                <span class="ignored-method-name">clickOnMyLaborAssignmentsTest</span>
+                <br/>
+                <span class="ignored-method-name">clickOnReturnItemsTest</span>
+                <br/>
+                <span class="ignored-method-name">clickOnCancellationHolidayTest</span>
+                <br/>
+                <span class="ignored-method-name">clickOnAdminTest</span>
                 <br/>
                 <span class="ignored-method-name">clickOnWeatherCancellationTest</span>
                 <br/>
-                <span class="ignored-method-name">clickOnDriverEnterTest</span>
+                <span class="ignored-method-name">clickOnHoursSummaryExportTest</span>
                 <br/>
                 <span class="ignored-method-name">clickOnTransferItemsTest</span>
+                <br/>
+                <span class="ignored-method-name">clickOnBackFromRepairTest</span>
+                <br/>
+                <span class="ignored-method-name">clickOnDashboardTest</span>
+                <br/>
+                <span class="ignored-method-name">clickOnEditJobDetailsTest</span>
+                <br/>
+                <span class="ignored-method-name">clickOnCheckOutItemsTest</span>
+                <br/>
+                <span class="ignored-method-name">updatedLinkTest</span>
+                <br/>
+                <span class="ignored-method-name">clickOnSendTextMessageTest</span>
+                <br/>
+                <span class="ignored-method-name">clickOnPlaceOrderTest</span>
+                <br/>
+                <span class="ignored-method-name">clickOnOrderForYardTest</span>
+                <br/>
+                <span class="ignored-method-name">clickOnDatabaseTest</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -319,11 +319,11 @@ return data;
                 <img src="failed.png">
                 </img>
                 <span class="method-name">testAllButtonsInSingleLogin</span>
-                <span class="method-start">8862 ms</span>
+                <span class="method-start">9391 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">34751 ms</span>
+                <span class="method-start">63301 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
