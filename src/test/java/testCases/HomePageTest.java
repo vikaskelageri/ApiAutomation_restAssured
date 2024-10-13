@@ -12,7 +12,6 @@ import util.Utilities;
 
 public class HomePageTest extends TestBase {
 
-
 	HomePage homePage;
 	LoginPage loginPage;
 	ChangeLogPage changeLog;
@@ -199,6 +198,7 @@ public class HomePageTest extends TestBase {
         // Click and validate 'Job Summary' button
         jobSummaryPage = homePage.clickOnJobSummary();
         jobSummaryPage.isHeaderDisplayed();
+        jobSummaryPage.isActiveColumnDisplayed();
         String jobSummaryScreenshotBase64 = Utilities.captureScreenshotAsBase64();  // Capture screenshot as Base64
         homePage = jobSummaryPage.clickOnHome(); // Navigate back to Home page
         Assert.assertTrue(homePage.updatedIsDisplayed());
@@ -215,6 +215,7 @@ public class HomePageTest extends TestBase {
         // Click and validate 'Admin' button
         adminPage = homePage.clickOnAdmin();
         adminPage.isHeaderDisplayed();
+        adminPage.isAddNewWorkerButtonDisplayed();
         String adminScreenshotBase64 = Utilities.captureScreenshotAsBase64();  // Capture screenshot as Base64
         homePage = adminPage.clickOnHome(); // Navigate back to Home page
         Assert.assertTrue(homePage.updatedIsDisplayed());
@@ -247,6 +248,7 @@ public class HomePageTest extends TestBase {
         // Click and validate 'Database' button
         databasePage = homePage.clickOnDatabase();
         databasePage.isHeaderDisplayed();
+        databasePage.isAddNewButtonDisplayed();
         String databaseScreenshotBase64 = Utilities.captureScreenshotAsBase64();  // Capture screenshot as Base64
         homePage = databasePage.clickOnHome(); // Navigate back to Home page
         Assert.assertTrue(homePage.updatedIsDisplayed());

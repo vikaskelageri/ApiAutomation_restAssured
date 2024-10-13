@@ -1,7 +1,6 @@
 package pages;
 
 import java.time.Duration;
-import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
@@ -102,13 +101,14 @@ public class HomePage extends BasePage {
 	@FindBy(xpath = "//span[text()='4240374-Test-chicago']")
 	WebElement selectedJob;
 	
-	
-	
-	By jobToSelect = By.xpath("//div[text()='4240374-Test-chicago']");
+	@FindBy(xpath = "(//div[@role='option'])[2]") // To select second job from the dropdown
+	WebElement jobToSelect;
 	
 
-    WebDriverWait 
-    wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+	
+
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     
     @Override
     public boolean isHeaderDisplayed() {
@@ -130,8 +130,7 @@ public class HomePage extends BasePage {
                 System.out.println("Stale Element. Retrying...");
             }
         }
-
-    	wait.until(ExpectedConditions.visibilityOf(selectedJob));
+        
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Utilities.IMPLICIT_WAIT));
     }
 

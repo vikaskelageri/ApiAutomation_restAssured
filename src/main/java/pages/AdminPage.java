@@ -9,9 +9,16 @@ public class AdminPage extends BasePage  {
 	@FindBy(xpath = "//h1[normalize-space()='LABORADMIN']")
 	WebElement laborAdminHeader;
 	
+	@FindBy(xpath = "//button[normalize-space()='Add New Worker']")
+	WebElement addNewWorkerButton;
+	
 	@Override
 	public boolean isHeaderDisplayed() {
 		return laborAdminHeader.isDisplayed();
+	}
+	
+	public boolean isAddNewWorkerButtonDisplayed() {
+		return addNewWorkerButton.isDisplayed();
 	}
 
 }

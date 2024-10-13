@@ -36,7 +36,7 @@ public class TestBase {
             options.addArguments("--disable-blink-features=AutomationControlled");
             options.setExperimentalOption("useAutomationExtension", false);
             options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
-//          options.addArguments("--headless");
+//            options.addArguments("--headless");
 //			options.addArguments("--window-size=1920,1080");
 //			options.addArguments("--disable-gpu"); 
 //			options.addArguments("--no-sandbox");
