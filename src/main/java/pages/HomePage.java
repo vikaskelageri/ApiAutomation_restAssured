@@ -26,7 +26,7 @@ public class HomePage extends BasePage {
 	@FindBy(xpath = "//p[contains(text(), 'bulleys boss')]")
 	WebElement userIcon;
 	
-	@FindBy(xpath = "//span[text()='Select a job']")
+	@FindBy(xpath = "//input[@placeholder='Select a job']")
 	WebElement jobsDropdown;
 
 	@FindBy(xpath = "//button[contains(text(), 'EDIT JOB DETAILS')]")
@@ -101,7 +101,7 @@ public class HomePage extends BasePage {
 	@FindBy(xpath = "//span[text()='4240374-Test-chicago']")
 	WebElement selectedJob;
 	
-	@FindBy(xpath = "(//div[@role='option'])[2]") // To select second job from the dropdown
+	@FindBy(xpath = "(//li[@role='option'])[2]") // To select second job from the dropdown
 	WebElement jobToSelect;
 	
 

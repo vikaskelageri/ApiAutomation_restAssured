@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class WeatherCancellationPage extends BasePage{
 	
-	@FindBy(xpath = "//div[text()='Call Weather Cancellation']")
+	@FindBy(xpath = "//h1[text()='Call Weather Cancellation']")
 	WebElement weatherCancellationHeader;
 
 	@Override

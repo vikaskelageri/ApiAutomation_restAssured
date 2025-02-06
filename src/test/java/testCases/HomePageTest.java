@@ -1,5 +1,7 @@
 package testCases;
 
+import java.time.Duration;
+
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -76,6 +78,7 @@ public class HomePageTest extends TestBase {
         ExtentReporterNG.test.addScreenCaptureFromBase64String(editJobScreenshotBase64, "Edit Job Details Page Screenshot");  // Attach screenshot to report
 
         // Click and validate 'Place Order' button
+        homePage.selectJob();
         placeOrderPage = homePage.clickOnPlaceOrder();
         placeOrderPage.isHeaderDisplayed();
         String placeOrderScreenshotBase64 = Utilities.captureScreenshotAsBase64();  // Capture screenshot as Base64
@@ -100,6 +103,7 @@ public class HomePageTest extends TestBase {
         ExtentReporterNG.test.addScreenCaptureFromBase64String(dashboardScreenshotBase64, "Dashboard Page Screenshot");  // Attach screenshot to report
 
         // Click and validate 'View Template' button
+        homePage.selectJob();
         viewTemplatePage = homePage.clickOnViewTemplate();
         viewTemplatePage.isHeaderDisplayed();
         String viewTemplateScreenshotBase64 = Utilities.captureScreenshotAsBase64();  // Capture screenshot as Base64
@@ -111,6 +115,12 @@ public class HomePageTest extends TestBase {
         checkOutItemsPage = homePage.clickOnCheckOutItems();
         checkOutItemsPage.isHeaderDisplayed();
         String checkOutItemsScreenshotBase64 = Utilities.captureScreenshotAsBase64();  // Capture screenshot as Base64
+        try {
+			Thread.sleep(Duration.ofSeconds(5));
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         homePage = checkOutItemsPage.clickOnHome(); // Navigate back to Home page
         Assert.assertTrue(homePage.updatedIsDisplayed());
         ExtentReporterNG.test.addScreenCaptureFromBase64String(checkOutItemsScreenshotBase64, "Check Out Items Page Screenshot");  // Attach screenshot to report
@@ -148,6 +158,7 @@ public class HomePageTest extends TestBase {
         ExtentReporterNG.test.addScreenCaptureFromBase64String(truckManagementScreenshotBase64, "Truck Management Page Screenshot");  // Attach screenshot to report
 
         // Click and validate 'Schedule Labor' button
+        homePage.selectJob();
         scheduleLaborPage = homePage.clickOnScheduleLabor();
         scheduleLaborPage.isHeaderDisplayed();
         String scheduleLaborScreenshotBase64 = Utilities.captureScreenshotAsBase64();  // Capture screenshot as Base64
@@ -172,6 +183,7 @@ public class HomePageTest extends TestBase {
         ExtentReporterNG.test.addScreenCaptureFromBase64String(updateTimesheetsScreenshotBase64, "Update Timesheets Page Screenshot");  // Attach screenshot to report
 
         // Click and validate 'Weather Cancellation' button
+        homePage.selectJob();
         weatherCancellationPage = homePage.clickOnWeatherCancellation();
         weatherCancellationPage.isHeaderDisplayed();
         String weatherCancellationScreenshotBase64 = Utilities.captureScreenshotAsBase64();  // Capture screenshot as Base64
@@ -180,6 +192,7 @@ public class HomePageTest extends TestBase {
         ExtentReporterNG.test.addScreenCaptureFromBase64String(weatherCancellationScreenshotBase64, "Weather Cancellation Page Screenshot");  // Attach screenshot to report
 
         // Click and validate 'Cancellation Holiday' button
+        homePage.selectJob();
         cancellationHolidayPage = homePage.clickOnCancellationHoliday();
         cancellationHolidayPage.isHeaderDisplayed();
         String cancellationHolidayScreenshotBase64 = Utilities.captureScreenshotAsBase64();  // Capture screenshot as Base64

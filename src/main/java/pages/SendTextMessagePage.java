@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SendTextMessagePage extends BasePage{
 	
-	@FindBy(xpath = "//div[text()='Create New Message']")
+	@FindBy(xpath = "//h4[text()='Create New Message']")
 	WebElement sendTextMessageHeader;
 	
 	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));

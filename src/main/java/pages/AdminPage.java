@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class AdminPage extends BasePage  {
 	
-	@FindBy(xpath = "//h1[normalize-space()='LABORADMIN']")
+	@FindBy(xpath = "//h1[normalize-space()='LABOR ADMIN']")
 	WebElement laborAdminHeader;
 	
 	@FindBy(xpath = "//button[normalize-space()='Add New Worker']")
