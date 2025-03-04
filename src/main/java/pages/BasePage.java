@@ -4,6 +4,8 @@ import base.TestBase;
 
 import java.time.Duration;
 
+import org.openqa.selenium.ElementClickInterceptedException;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -15,6 +17,7 @@ public abstract class BasePage extends TestBase {
 	@FindBy(xpath = "//a[contains(@href, '/') and contains(text(), 'Home')]")
 	WebElement homeButton;
 
+
     public BasePage() {
         PageFactory.initElements(driver, this);
     }
@@ -25,9 +28,15 @@ public abstract class BasePage extends TestBase {
     public abstract boolean isHeaderDisplayed();
     
     public HomePage clickOnHome() {
-    	wait.until(ExpectedConditions.elementToBeClickable(homeButton)).click();
-		return new HomePage();
-	}
+        try {
+            wait.until(ExpectedConditions.elementToBeClickable(homeButton)).click();
+        } catch (ElementClickInterceptedException e) {
+        	JavascriptExecutor js = (JavascriptExecutor) driver;
+            js.executeScript("arguments[0].click();", homeButton);
+        }
+        return new HomePage();
+    }
+
 
     // You can add more common functionality here, like wait for elements, navigate, etc.
 }

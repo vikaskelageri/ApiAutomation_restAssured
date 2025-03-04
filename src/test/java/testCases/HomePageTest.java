@@ -115,12 +115,7 @@ public class HomePageTest extends TestBase {
         checkOutItemsPage = homePage.clickOnCheckOutItems();
         checkOutItemsPage.isHeaderDisplayed();
         String checkOutItemsScreenshotBase64 = Utilities.captureScreenshotAsBase64();  // Capture screenshot as Base64
-        try {
-			Thread.sleep(Duration.ofSeconds(5));
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+        
         homePage = checkOutItemsPage.clickOnHome(); // Navigate back to Home page
         Assert.assertTrue(homePage.updatedIsDisplayed());
         ExtentReporterNG.test.addScreenCaptureFromBase64String(checkOutItemsScreenshotBase64, "Check Out Items Page Screenshot");  // Attach screenshot to report
