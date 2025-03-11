@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Order For Yard Test Suite">
+    <!-- Register ExtentReporter listener -->
+    <listeners>
+        <listener class-name="listeners.ExtentReporterNG"/>
+    </listeners>
+
+    <test thread-count="5" name="Order For Yard Tests">
+        <classes>
+            <class name="testCases.OrderForYardPageTest">
+                <methods>
+                    <include name="testOrderAppearsInTodaysDeliveries"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite> 

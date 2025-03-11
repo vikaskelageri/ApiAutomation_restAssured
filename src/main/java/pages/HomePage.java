@@ -1,6 +1,8 @@
 package pages;
 
 import java.time.Duration;
+
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
@@ -115,24 +117,57 @@ public class HomePage extends BasePage {
 		return bossHeader.isDisplayed();
 	}
 
+
+    
     public void selectJob() {
-    	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
-    	wait = new WebDriverWait(driver, Duration.ofSeconds(8));
-        for (int i = 0; i < 3; i++) {
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(8));
+
+        for (int i = 0; i < 3; i++) {  // Retry up to 3 times
             try {
+                // Click the job dropdown and select a job
                 wait.until(ExpectedConditions.elementToBeClickable(jobsDropdown)).click();
                 wait.until(ExpectedConditions.elementToBeClickable(jobToSelect)).click();
-                break;  // Exit loop if successful
-            }catch(TimeoutException e) {
-            	System.out.println("Jobs were not displayed. Retrying...");
+
+                // Wait for the Place Order button to ensure page load
+                wait.until(ExpectedConditions.visibilityOf(placeOrderButton));
+
+                // Verify if job selection was successful
+                if (isJobSelectedSuccessfully()) {
+                    System.out.println("✅ Job selected successfully.");
+                    break; // Exit loop if successful
+                }
+            } catch (TimeoutException e) {
+                System.out.println("⚠️ Jobs were not displayed. Retrying...");
+            } catch (StaleElementReferenceException e) {
+                System.out.println("⚠️ Stale Element. Retrying...");
             }
-            catch (StaleElementReferenceException e) {
-                System.out.println("Stale Element. Retrying...");
+
+            // Check if the job selection error appears after selecting the job
+            if (isJobSelectionErrorDisplayed()) {
+                System.out.println("🚨 Job selection error detected. Retrying...");
             }
         }
-        
+
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Utilities.IMPLICIT_WAIT));
     }
+
+    private boolean isJobSelectedSuccessfully() {
+        try {
+            return placeOrderButton.isDisplayed();  // Ensure Place Order button is visible
+        } catch (NoSuchElementException | TimeoutException e) {
+            return false;  // If not visible, job selection was lost
+        }
+    }
+
+    private boolean isJobSelectionErrorDisplayed() {
+        try {
+            return jobSelectErrorNotification.isDisplayed();  // Ensure error notification is visible
+        } catch (NoSuchElementException | TimeoutException e) {
+            return false;  // If not visible, no error
+        }
+    }
+
 
     public boolean updatedIsDisplayed() {
         return wait.until(ExpectedConditions.visibilityOf(updatedButton)).isDisplayed();
