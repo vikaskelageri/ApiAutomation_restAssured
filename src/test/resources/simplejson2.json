@@ -1,0 +1,29 @@
+{
+  "status": "success",
+  "data": {
+    "users": [
+      {
+        "id": 101,
+        "name": "John Doe",
+        "contacts": {
+          "email": "john.doe@example.com",
+          "phone": "1234567890"
+        },
+        "roles": ["admin", "editor"]
+      },
+      {
+        "id": 102,
+        "name": "Jane Smith",
+        "contacts": {
+          "email": "jane.smith@example.com",
+          "phone": "9876543210"
+        },
+        "roles": ["user"]
+      }
+    ],
+    "meta": {
+      "count": 2,
+      "generatedAt": "2025-04-06T12:34:56Z"
+    }
+  }
+}

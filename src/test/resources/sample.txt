@@ -1,0 +1,10 @@
+project-root/
+├── src/
+│   └── test/
+│       └── java/
+│           ├── tests/
+│           │   └── AgentAPITest.java
+│           └── utils/
+│               └── ExtentReportManager.java
+├── test-output/
+│   └── ExtentReport.html  <-- Final report generated here

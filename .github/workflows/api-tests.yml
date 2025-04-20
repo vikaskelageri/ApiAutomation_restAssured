@@ -1,0 +1,34 @@
+name: Run API Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ⬇️ Checkout code
+        uses: actions/checkout@v3
+
+      - name: ☕ Set up Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17' # Or '11' depending on your Java version
+
+      - name: 🧰 Install Maven
+        run: sudo apt install maven -y
+
+      - name: 📦 Build & Run Tests
+        run: mvn clean test
+
+      - name: 📤 Upload Extent Report
+        if: always() # Even if tests fail
+        uses: actions/upload-artifact@v3
+        with:
+          name: extent-report
+          path: test-output/ExtentReports/ # Or your actual report path
