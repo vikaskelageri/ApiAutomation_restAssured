@@ -29,7 +29,7 @@ jobs:
 
       - name: 📤 Upload Extent Report
         if: always()
-        uses: actions/upload-artifact@v3.1.3
+        uses: actions/upload-artifact@v4
         with:
           name: extent-report
           path: test-output/ExtentReports/
