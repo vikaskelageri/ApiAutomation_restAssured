@@ -2,7 +2,7 @@
 <suite name="API Test Suite">
     <test name="API Tests">
         <classes>
-            <class name="test.httpmethods"/>
+            <class name="test.AgentAPI"/>
         </classes>
     </test>
 </suite>

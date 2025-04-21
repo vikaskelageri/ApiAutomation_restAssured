@@ -43,12 +43,9 @@
             <artifactId>json-path</artifactId>
             <version>2.9.0</version>
         </dependency>
-        <dependency>
-            <groupId>com.github.javafaker</groupId>
-            <artifactId>javafaker</artifactId>
-            <version>1.0.2</version>
-        </dependency>
+
     </dependencies>
+
     <build>
         <plugins>
             <plugin>
@@ -56,16 +53,13 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0</version>
                 <configuration>
-                    <includes>
-                        <include>**/*Test.java</include>
-                        <include>**/*Tests.java</include>
-                        <include>**/*API.java</include> <!-- Include your test class -->
-                    </includes>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
+                    </suiteXmlFiles>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
 <!--    <build>-->
 <!--        <plugins>-->
 <!--            <plugin>-->
@@ -73,9 +67,11 @@
 <!--                <artifactId>maven-surefire-plugin</artifactId>-->
 <!--                <version>3.0.0</version>-->
 <!--                <configuration>-->
-<!--                    <suiteXmlFiles>-->
-<!--                        <suiteXmlFile>src/test/resourses/testng.xml</suiteXmlFile>-->
-<!--                    </suiteXmlFiles>-->
+<!--                    <includes>-->
+<!--                        <include>**/*Test.java</include>-->
+<!--                        <include>**/*Tests.java</include>-->
+<!--                        <include>**/*API.java</include> &lt;!&ndash; Include your test class &ndash;&gt;-->
+<!--                    </includes>-->
 <!--                </configuration>-->
 <!--            </plugin>-->
 <!--        </plugins>-->

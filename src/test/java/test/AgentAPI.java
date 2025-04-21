@@ -23,8 +23,8 @@ public class AgentAPI extends BaseTest {
 
 
         Response response = given()
-                .header("Content-Type", "application/json")
-                .get("https://cpiai-dev.azurewebsites.net/api/v1/agent/list")
+                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3MzIxMTg5LCJpYXQiOjE3NDQ3MjkxODksImp0aSI6IjRmZGNkNTFjZGI3MTQ2YzVhZDhjNTUzMDYwZWVkODA3IiwidXNlcl9pZCI6ODl9.6cDhidmoHm1ZO77KbAtCWIc6HNYRgoAdIGToCD28y1o")
+                .get("/api/v1/agent/list")
                 .then()
                 .statusCode(200)
                 .extract().response();
