@@ -104,16 +104,20 @@ public class AgentAPI extends BaseTest {
 
         Response response=given()
                 .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3MzIxMTg5LCJpYXQiOjE3NDQ3MjkxODksImp0aSI6IjRmZGNkNTFjZGI3MTQ2YzVhZDhjNTUzMDYwZWVkODA3IiwidXNlcl9pZCI6ODl9.6cDhidmoHm1ZO77KbAtCWIc6HNYRgoAdIGToCD28y1o")
-                .get("/api/v1/user/113/manage").then().statusCode(200).extract().response();
+                .get(APIEndpoints.getAgentList())
+                .then().statusCode(200).extract().response();
 
-//        System.out.println("Username: "+response.jsonPath().getString("detail.agents[0].first_name"));
+        String name=response.jsonPath().getString("detail.agents[0].first_name");
+        String address=response.jsonPath().getString("detail.agents[1].physical_address.address");
+        System.out.println("name: "+name+" address: "+address);
+
         Response res=given()
                  .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3MzIxMTg5LCJpYXQiOjE3NDQ3MjkxODksImp0aSI6IjRmZGNkNTFjZGI3MTQ2YzVhZDhjNTUzMDYwZWVkODA3IiwidXNlcl9pZCI6ODl9.6cDhidmoHm1ZO77KbAtCWIc6HNYRgoAdIGToCD28y1o")
                 .delete("/api/v1/user/113/manage")
                 .then().extract().response();
 
             int statuscode=res.getStatusCode();
-//            String username=
+
            if(res.jsonPath().getString("detail").equalsIgnoreCase("User Deleted Successfully")){
                System.out.println("Message: "+res.jsonPath().getString("detail"));
            }
@@ -121,7 +125,7 @@ public class AgentAPI extends BaseTest {
                 System.out.println("Failed: "+res.asString());
             }
             else{
-                System.out.println("Passed: "+res.asString());
+                System.out.println("Deleted : "+res.asString() +" name:"+name +" address:"+address);
             }
 
 
