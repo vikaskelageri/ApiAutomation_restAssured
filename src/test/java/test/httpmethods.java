@@ -6,7 +6,7 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import test.base.BaseTest;
+import base.BaseTest;
 
 import java.io.File;
 import java.util.List;

@@ -1,4 +1,4 @@
-package test.base;
+package base;
 
 import io.restassured.RestAssured;
 import org.testng.annotations.AfterSuite;
