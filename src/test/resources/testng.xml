@@ -30,6 +30,16 @@
         <parameter name="par2" value="firefox"> </parameter>
 
     </test>
-   
+    <test name="run">
+        <parameter name="par" value="chrome"> </parameter>
+        <parameter name="par2" value="firefox"> </parameter>
+
+    </test>
+    <test name="run">
+        <parameter name="par" value="chrome"> </parameter>
+        <parameter name="par2" value="firefox"> </parameter>
+
+    </test>
+
  
 </suite>
