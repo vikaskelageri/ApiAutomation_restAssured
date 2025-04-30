@@ -1,0 +1,34 @@
+{
+  "quote_id": null,
+  "endorsement": false,
+  "carrier": 2,
+  "general_liability_amt": 0,
+  "water_sewer_backup_amt": 25,
+  "policy_fee_apply": true,
+  "state_form": "arizona",
+  "water_sewer_backup": true,
+  "general_liability": false,
+  "effective_date": "2025-04-24",
+  "expiration_date": "2026-04-24",
+  "locations": [
+    {
+      "address": "N Springs MARTA, Sandy Springs, GA 30328, USA",
+      "city": "Sandy Springs",
+      "postal_code": "30328",
+      "aop": 5000,
+      "units": 1,
+      "coverage_a": 54554,
+      "coverage_b": 0,
+      "coverage_c": 0,
+      "loss_rent_percent": 0,
+      "loss_of_rent": 0,
+      "coverage_b_percent": 0,
+      "county": "Fulton County",
+      "state": "Georgia",
+      "state_abb": "GA",
+      "recommended_rate": 0.5,
+      "last_result": null,
+      "id": "e684f33c-81b7-48aa-8bf4-680170815553"
+    }
+  ]
+}

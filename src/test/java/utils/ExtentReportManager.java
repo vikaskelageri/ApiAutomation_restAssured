@@ -23,6 +23,10 @@ public class ExtentReportManager {
     }
 
     // Flush the report (call this in @AfterClass or @AfterSuite)
+//    Write Data to Output: During test execution, test result
+//    (pass/fail/skip status, logs, screenshots, etc.) are added
+//    to the Extent Reports object in memory. The flush() operation writes this
+//    accumulated data from memory to the output destination, which is usually an HTML file.
     public static void flushReport() {
         if (extent != null) {
             extent.flush();
