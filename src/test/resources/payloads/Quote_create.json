@@ -1,0 +1,119 @@
+{
+    "general_liability_amt": 0,
+    "water_sewer_backup_amt": "125",
+    "policy_fee_apply": true,
+    "state_form": "Arizona",
+    "investor": 46,
+    "suggested_uw_rate_percent": 0,
+    "effective_date": "2025-04-24",
+    "expiration_date": "2026-04-24",
+    "created_by": 89,
+    "agent": 71,
+    "carrier": 1,
+    "new_comm": 12,
+    "renewal_comm": 12,
+    "animal_liability": false,
+    "water_sewer_backup": true,
+    "general_liability": false,
+    "locations": [
+        {
+            "id": "a5733d17-a573-4014-a7f4-b7e88c449942",
+            "location_rate_calculation": {
+                "aop": 5000,
+                "coverage_a": 32003,
+                "coverage_b": 0,
+                "coverage_c": 0,
+                "coverage_b_percent": 0,
+                "loss_rent_percent": 0,
+                "loss_of_rent": 0,
+                "total_insured_value": 32003,
+                "premium": 285.015,
+                "property_premium": 160.015,
+                "fees": 50,
+                "taxes": 100,
+                "taxes_details": {
+                    "sl_tax": 100,
+                    "stamping_fee": 0,
+                    "sl_service_charge": 0,
+                    "municipal_fee": 0,
+                    "county_fee": null,
+                    "fm_tax": 0,
+                    "empa_tax": 0,
+                    "rpg": 0
+                },
+                "general_liability_amt": 0,
+                "rate": 0.5,
+                "water_sewer_amt": 125,
+                "id": "a5733d17-a573-4014-a7f4-b7e88c449942"
+            },
+            "family_dwelling": "RS",
+            "rental_type": "LT",
+            "rcv_acv": "RCV",
+            "year_built": 2024,
+            "stories": 0,
+            "square_ft": 0,
+            "square_ft_price": 209,
+            "coverage_a": 32003,
+            "coverage_b_percent": 0,
+            "coverage_c": 0,
+            "aop": 5000,
+            "state_abb": "NJ",
+            "payment_terms": 1,
+            "downpay": 0,
+            "units": 1,
+            "recommended_rate": 0.5,
+            "wind_deductible": {
+                "id": "2% or $5,000",
+                "value": 5000,
+                "percentValue": 2
+            },
+            "wind_deductible_amt": 640.0600000000001,
+            "roof_replaced_year": 2014,
+            "excluding_wind": true,
+            "payment_plan": "PAID_IN_FULL",
+            "loss_rent_percent": 0,
+            "address": {
+                "city": "Newark",
+                "state": "New Jersey",
+                "postal_code": "07114",
+                "address": "Newark International Airport St, Newark, NJ 07114, USA",
+                "country": "Essex County",
+                "municipality": "",
+                "county": "Essex County",
+                "state_abb": "NJ"
+            },
+            "mortgagee1": {
+                "name": "",
+                "address1": "",
+                "address2": "",
+                "city": "",
+                "state": "",
+                "postal_code": ""
+            },
+            "mortgagee2": {
+                "name": "",
+                "address1": "",
+                "address2": "",
+                "city": "",
+                "state": "",
+                "postal_code": ""
+            },
+            "additional_insured_1": {
+                "name": "",
+                "address1": "",
+                "address2": "",
+                "city": "",
+                "state": "",
+                "postal_code": ""
+            },
+            "additional_insured_2": {
+                "name": "",
+                "address1": "",
+                "address2": "",
+                "city": "",
+                "state": "",
+                "postal_code": ""
+            }
+        }
+    ]
+}

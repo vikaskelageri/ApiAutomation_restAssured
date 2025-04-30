@@ -353,7 +353,7 @@ public class httpmethods extends BaseTest {
     public void CPI_UpdateAgent_() {
 
         RestAssured.baseURI = "https://cpiai-dev.azurewebsites.net/";
-        Response res=given()
+        Response res = given()
                 .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3MzIxMTg5LCJpYXQiOjE3NDQ3MjkxODksImp0aSI6IjRmZGNkNTFjZGI3MTQ2YzVhZDhjNTUzMDYwZWVkODA3IiwidXNlcl9pZCI6ODl9.6cDhidmoHm1ZO77KbAtCWIc6HNYRgoAdIGToCD28y1o")
                 .patch("/api/v1/user/111/manage").then().extract().response();
         System.out.println(res.asString());

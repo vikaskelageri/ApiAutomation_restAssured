@@ -1,8 +1,34 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="API Test Suite">
-    <test name="API Tests">
-        <classes>
-            <class name="test.AgentAPI"/>
-        </classes>
+<!--<suite name="API Test Suite">-->
+
+<!--    &lt;!&ndash; First Test: Executes all methods in AgentAPI &ndash;&gt;-->
+<!--&lt;!&ndash;    <test name="API Tests">&ndash;&gt;-->
+<!--&lt;!&ndash;        <classes>&ndash;&gt;-->
+<!--&lt;!&ndash;            <class name="test.AgentAPI"/>&ndash;&gt;-->
+<!--&lt;!&ndash;        </classes>&ndash;&gt;-->
+<!--&lt;!&ndash;    </test>&ndash;&gt;-->
+
+<!--    &lt;!&ndash; Second Test: Executes only 'get' group methods &ndash;&gt;-->
+<!--    <test name="API get tests">-->
+<!--        <groups>-->
+<!--            <run>-->
+<!--                <include name="get"/>-->
+<!--            </run>-->
+
+<!--        </groups>-->
+<!--        <classes>-->
+<!--            <class name="test.InvoicesAPI"> </class>-->
+<!--            <class name="test.QuoteAPI"> </class>-->
+<!--        </classes>-->
+<!--    </test>-->
+
+<!--</suite>-->
+
+<suite name="suite" parallel="methods" thread-count="3">
+    <test name="run">
+        <parameter name="par" value="chrome"> </parameter>
+        <parameter name="par2" value="firefox"> </parameter>
+
     </test>
+
 </suite>

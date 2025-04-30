@@ -23,4 +23,25 @@ public class APIEndpoints {
     public static String deleteAgent(int id) {
         return BASE + "/user/" + id + "/manage";
     }
+
+    public static String getQuoteList() {
+        return BASE + "/quote/manage";
+    }
+
+    public static String getLocation() {
+        return BASE + "/quote/get_tiv";
+    }
+
+    public static String createCreditPay(int id) {
+        return BASE + "/invoices/policy/"+id+"/mark_as_paid";
+    }
+
+    public static String login() {
+
+        return BASE + "/user/login";
+    }
+
+
+
+
 }
