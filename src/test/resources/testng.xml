@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="API Test Suite">
+
 
 <!--    &lt;!&ndash; First Test: Executes all methods in AgentAPI &ndash;&gt;-->
 <!--&lt;!&ndash;    <test name="API Tests">&ndash;&gt;-->
@@ -30,10 +30,10 @@
         <parameter name="par2" value="firefox"> </parameter>
 
     </test>
+
       <test name="run2">
         <parameter name="par" value="chrome"> </parameter>
         <parameter name="par2" value="firefox"> </parameter>
 
     </test>
-
 </suite>
