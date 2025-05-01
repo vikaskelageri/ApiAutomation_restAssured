@@ -16,8 +16,8 @@ import java.util.Properties;
 import static io.restassured.RestAssured.given;
 
 public class BaseTest {
-    protected Properties config;
-    protected static String accessToken;
+    public static Properties config;
+    public static String accessToken;
 
     @BeforeSuite
     public void setup() {
@@ -38,11 +38,6 @@ public class BaseTest {
 
     }
 
-    @AfterSuite
-    public void tearDown() {
-        // Flush the report after all tests
-        ExtentReportManager.flushReport();
-    }
 
     private void authenticate() throws Exception {
         String username = config.getProperty("username");
@@ -69,5 +64,11 @@ public class BaseTest {
             throw new IOException("Payload path not found for key: " + configKey);
         }
         return new String(Files.readAllBytes(Paths.get(path)));
+    }
+
+    @AfterSuite
+    public void tearDown() {
+        // Flush the report after all tests
+        ExtentReportManager.flushReport();
     }
 }

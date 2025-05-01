@@ -29,7 +29,6 @@ public class CPI_Verify_Authentication extends BaseTest {
         String password=config.getProperty("password");
 
         String payload = getPayloadFromConfig("loginJson");
-//        String payload = new String(Files.readAllBytes(Paths.get("src/test/resources/payloads/loginCred.json")));
 
         Response rs=given()
                 .auth()

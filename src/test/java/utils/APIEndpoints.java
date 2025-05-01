@@ -40,7 +40,12 @@ public class APIEndpoints {
 
         return BASE + "/user/login";
     }
-
+    public static String deleteQuote(int id) {
+        return BASE + "/quote/" + id + "/update";
+    }
+    public static String deleteInvoice(int id) {
+        return BASE + "/quote/" + id + "/update";
+    }
 
 
 

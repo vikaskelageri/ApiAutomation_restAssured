@@ -25,7 +25,7 @@ public class AgentAPI extends BaseTest {
 
 
         Response response = given()
-                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3MzIxMTg5LCJpYXQiOjE3NDQ3MjkxODksImp0aSI6IjRmZGNkNTFjZGI3MTQ2YzVhZDhjNTUzMDYwZWVkODA3IiwidXNlcl9pZCI6ODl9.6cDhidmoHm1ZO77KbAtCWIc6HNYRgoAdIGToCD28y1o")
+                .header("Authorization", "Bearer accessToken")
                 .get(APIEndpoints.getAgentList())
                 .then()
                 .statusCode(200)
@@ -85,7 +85,7 @@ public class AgentAPI extends BaseTest {
         }
 
         Response res=given()
-                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3MzIxMTg5LCJpYXQiOjE3NDQ3MjkxODksImp0aSI6IjRmZGNkNTFjZGI3MTQ2YzVhZDhjNTUzMDYwZWVkODA3IiwidXNlcl9pZCI6ODl9.6cDhidmoHm1ZO77KbAtCWIc6HNYRgoAdIGToCD28y1o")
+                .header("Authorization", "Bearer accessToken")
                 .header("Content-Type", "application/json")
                 .body(payload)
                 .post(APIEndpoints.updateAgent(241))
@@ -103,7 +103,7 @@ public class AgentAPI extends BaseTest {
     public void DeleteAgent() {
 
         Response response=given()
-                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3MzIxMTg5LCJpYXQiOjE3NDQ3MjkxODksImp0aSI6IjRmZGNkNTFjZGI3MTQ2YzVhZDhjNTUzMDYwZWVkODA3IiwidXNlcl9pZCI6ODl9.6cDhidmoHm1ZO77KbAtCWIc6HNYRgoAdIGToCD28y1o")
+                .header("Authorization", "Bearer accessToken")
                 .get(APIEndpoints.getAgentList())
                 .then().statusCode(200).extract().response();
 
@@ -112,7 +112,7 @@ public class AgentAPI extends BaseTest {
         System.out.println("name: "+name+" address: "+address);
 
         Response res=given()
-                 .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3MzIxMTg5LCJpYXQiOjE3NDQ3MjkxODksImp0aSI6IjRmZGNkNTFjZGI3MTQ2YzVhZDhjNTUzMDYwZWVkODA3IiwidXNlcl9pZCI6ODl9.6cDhidmoHm1ZO77KbAtCWIc6HNYRgoAdIGToCD28y1o")
+                 .header("Authorization", "Bearer accessToken")
                 .delete("/api/v1/user/113/manage")
                 .then().extract().response();
 
