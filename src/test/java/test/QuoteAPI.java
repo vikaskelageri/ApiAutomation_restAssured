@@ -31,11 +31,10 @@ public class QuoteAPI extends BaseTest{
 
         Response res = given()
                 .queryParam("quote_status", "ALL")
-                .header("Authorization", "Bearer " + accessToken) // 👈 directly from BaseTest
+                .header("Authorization", "Bearer " + accessToken)
                 .get(APIEndpoints.getQuoteList())
-                .then().log().all().extract().response();
+                .then().extract().response();
 
-        System.out.println(res.asString());
     }
 
     @Test(groups = {"post"})

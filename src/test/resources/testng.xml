@@ -15,5 +15,18 @@
         </classes>
     </test>
 
+    <test name="regression module">
+        <groups>
+            <run>
+                <include name="delete">
+
+                </include>
+            </run>
+        </groups>
+        <classes>
+            <class name="test.QuoteAPI"> </class>
+        </classes>
+    </test>
+
 
 </suite>
