@@ -7,6 +7,7 @@ import org.testng.annotations.*;
 import io.restassured.response.Response;
 import base.BaseTest;
 import utils.APIEndpoints;
+import utils.TokenManagement;
 
 import static io.restassured.RestAssured.given;
 
@@ -17,15 +18,15 @@ import java.nio.file.Paths;
 
 @Listeners(ExtentTestListener.class)
 public class AgentAPI extends BaseTest {
-    public static String agentId;
 
 
-    @Test(priority = 1, groups = "Get")
+
+    @Test(priority = 1, groups = "get")
     public void getAgent() {
 
 
         Response response = given()
-                .header("Authorization", "Bearer accessToken")
+                .header("Authorization", "Bearer "+ TokenManagement.getAccessToken())
                 .get(APIEndpoints.getAgentList())
                 .then()
                 .statusCode(200)
@@ -59,6 +60,7 @@ public class AgentAPI extends BaseTest {
         int statusCode = response.getStatusCode();
         Reporter.getCurrentTestResult().setAttribute("response", response);
 
+        String agentId;
         if (statusCode != 201) {
             System.err.println("❌ Test Failed with status code: " + statusCode);
             System.err.println("🔽 Response body:");

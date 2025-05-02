@@ -5,7 +5,11 @@ import io.restassured.response.Response;
 import org.testng.*;
 import utils.ExtentReportManager;
 
-public class ExtentTestListener implements ITestListener {
+public class ExtentTestListener implements ITestListener, ISuiteListener{
+    @Override
+    public void onStart(ISuite suite) {
+        ExtentReportManager.initReport();
+    }
 
     @Override
     public void onTestStart(ITestResult result) {
@@ -20,8 +24,12 @@ public class ExtentTestListener implements ITestListener {
 
     @Override
     public void onTestFailure(ITestResult result) {
-        ExtentReportManager.test.log(Status.FAIL, "Test Failed: " + result.getThrowable());
-        logResponseFromAttribute(result);
+        if (ExtentReportManager.test != null) {
+            ExtentReportManager.test.log(Status.FAIL, "Test Failed: " + result.getThrowable());
+            logResponseFromAttribute(result);
+        } else {
+            System.out.println("ExtentTest is null, cannot log test failure.");
+        }
     }
 
     private void logResponseFromAttribute(ITestResult result) {

@@ -5,13 +5,13 @@ import io.restassured.specification.RequestSpecification;
 import static io.restassured.RestAssured.given;
 
 
-public class RequestSpecs {
+public class RequestSpecs extends BaseTest{
 
     // 1. Authenticated requests with JSON
     public static RequestSpecification getSpecWithAuth() {
         return given()
                 .baseUri(BaseTest.config.getProperty("baseURI"))
-                .header("Authorization", "Bearer " + BaseTest.accessToken)
+                .header("Authorization", "Bearer " + TokenManagement.getAccessToken())
                 .header("Content-Type", "application/json");
     }
 
@@ -26,7 +26,7 @@ public class RequestSpecs {
     public static RequestSpecification getFileUploadSpec() {
         return given()
                 .baseUri(BaseTest.config.getProperty("baseURI"))
-                .header("Authorization", "Bearer " + BaseTest.accessToken)
+                .header("Authorization", "Bearer " + TokenManagement.getAccessToken())
                 .multiPart("file", new java.io.File("path/to/your/file.png"));
     }
 
@@ -34,7 +34,7 @@ public class RequestSpecs {
     public static RequestSpecification getFormDataSpec() {
         return given()
                 .baseUri(BaseTest.config.getProperty("baseURI"))
-                .header("Authorization", "Bearer " + BaseTest.accessToken)
+                .header("Authorization", "Bearer " + TokenManagement.getAccessToken())
                 .contentType("application/x-www-form-urlencoded");
     }
 }

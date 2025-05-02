@@ -12,7 +12,7 @@ public class ExtentReportManager {
 
     // Initialize the report (call this in @BeforeClass or @BeforeSuite)
     public static void initReport() {
-        ExtentSparkReporter spark = new ExtentSparkReporter("ExtentSparkReporter spark = new ExtentSparkReporter(\"test-output/ExtentReports/ExtentReport.html");
+        ExtentSparkReporter spark = new ExtentSparkReporter("test-output/ExtentReports/ExtentReport.html");
         extent = new ExtentReports();
         extent.attachReporter(spark);
 
