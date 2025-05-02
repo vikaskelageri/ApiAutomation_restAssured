@@ -1,51 +1,91 @@
-name: Run API Tests
+#name: Run API Tests
+#
+#on:
+#  push:
+#    branches: [ main ]
+#  pull_request:
+#    branches: [ main ]
+#  schedule:
+#    - cron: '0 2 * * *' # Runs at 2 AM UTC daily
+#
+#jobs:
+#  test:
+#    runs-on: ubuntu-latest
+#    strategy:
+#      fail-fast: false # Important: Allows other jobs to finish even if one fails
+#      matrix:
+#        # Define the TestNG <test> names from your testng.xml to run in parallel
+#        test_name: ['smoke module', 'regression module'] # Match the 'name' attribute in <test> tags
+#
+#    steps:
+#      - name: ⬇️ Checkout code
+#        uses: actions/checkout@v3.6.0 # Using a specific checked version
+#
+#      - name: ☕ Set up Java and Maven
+#        uses: actions/setup-java@v3
+#        with:
+#          distribution: 'temurin'
+#          java-version: '23' # Using Java 23 as specified. Consider LTS (17, 21) if compatibility issues arise.
+#          cache: 'maven' # This caches Maven dependencies
+#
+#      # The 'setup-java' action with 'cache: maven' often handles Maven setup implicitly.
+#      # The explicit 'apt install maven' might be redundant and potentially conflict. Removed it.
+#      # - name: 🧰 Install Maven
+#      #   run: sudo apt install maven -y
+#
+#      - name: 📦 Build & Run Tests (${{ matrix.test_name }}) # Added matrix variable to name for clarity
+#        run: |
+#          echo "Running TestNG <test> block: ${{ matrix.test_name }}"
+#          # Use Maven Surefire/Failsafe plugin to target specific TestNG test names
+#          # Ensure your pom.xml uses maven-surefire-plugin (or failsafe) and configures it for TestNG
+#          # The '-Dtestng.testnames' property tells TestNG which <test> block(s) to run
+#          mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/testng.xml -Dtestng.testnames="${{ matrix.test_name }}"
+#      - name: 📤 Upload Extent Report (${{ matrix.test_name }})
+#        if: always() # Run even if the test step fails to upload partial reports
+#        uses: actions/upload-artifact@v4
+#        with:
+#          # Give each artifact a unique name based on the test block run
+#          name: extent-report-${{ matrix.test_name }}
+#          # Define the path to the report generated in this specific job
+#          path: test-output/ExtentReports/ExtentReport.html # Uploading the specific HTML file
+#          # Optional: retention-days: 7 # Keep artifacts for 7 days
+
+name: Run API Tests (Sequential - Main Branch)
 
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
-  schedule:
-    - cron: '0 2 * * *' # Runs at 2 AM UTC daily
 
 jobs:
   test:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false # Important: Allows other jobs to finish even if one fails
-      matrix:
-        # Define the TestNG <test> names from your testng.xml to run in parallel
-        test_name: ['smoke module', 'regression module'] # Match the 'name' attribute in <test> tags
-
     steps:
       - name: ⬇️ Checkout code
-        uses: actions/checkout@v3.6.0 # Using a specific checked version
+        uses: actions/checkout@v3.6.0
 
       - name: ☕ Set up Java and Maven
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: '23' # Using Java 23 as specified. Consider LTS (17, 21) if compatibility issues arise.
-          cache: 'maven' # This caches Maven dependencies
+          java-version: '23'
+          cache: 'maven'
 
-      # The 'setup-java' action with 'cache: maven' often handles Maven setup implicitly.
-      # The explicit 'apt install maven' might be redundant and potentially conflict. Removed it.
-      # - name: 🧰 Install Maven
-      #   run: sudo apt install maven -y
+      - name: 📦 Build & Run Smoke Tests
+        run: mvn clean test -Dsurefire.suiteXmlFiles=testng.xml -Dtestng.testnames="smoke module"
 
-      - name: 📦 Build & Run Tests (${{ matrix.test_name }}) # Added matrix variable to name for clarity
-        run: |
-          echo "Running TestNG <test> block: ${{ matrix.test_name }}"
-          # Use Maven Surefire/Failsafe plugin to target specific TestNG test names
-          # Ensure your pom.xml uses maven-surefire-plugin (or failsafe) and configures it for TestNG
-          # The '-Dtestng.testnames' property tells TestNG which <test> block(s) to run
-          mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/testng.xml -Dtestng.testnames="${{ matrix.test_name }}"
-      - name: 📤 Upload Extent Report (${{ matrix.test_name }})
-        if: always() # Run even if the test step fails to upload partial reports
+      - name: 📦 Build & Run Regression Tests
+        run: mvn clean test -Dsurefire.suiteXmlFiles=testng.xml -Dtestng.testnames="regression module"
+
+      - name: 📤 Upload Extent Report (Smoke)
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          # Give each artifact a unique name based on the test block run
-          name: extent-report-${{ matrix.test_name }}
-          # Define the path to the report generated in this specific job
-          path: test-output/ExtentReports/ExtentReport.html # Uploading the specific HTML file
-          # Optional: retention-days: 7 # Keep artifacts for 7 days
+          name: extent-report-smoke
+          path: test-output/ExtentReports/ExtentReport.html
+
+      - name: 📤 Upload Extent Report (Regression)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: extent-report-regression
+          path: test-output/ExtentReports/ExtentReport.html

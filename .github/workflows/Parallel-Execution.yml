@@ -1,0 +1,35 @@
+name: Run API Tests (Parallel - Manual Trigger)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        test_name: ['smoke module', 'regression module']
+
+    steps:
+      - name: ⬇️ Checkout code
+        uses: actions/checkout@v3.6.0
+
+      - name: ☕ Set up Java and Maven
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '23'
+          cache: 'maven'
+
+      - name: 📦 Build & Run Tests (${{ matrix.test_name }})
+        run: |
+          echo "Running TestNG <test> block: ${{ matrix.test_name }}"
+          mvn clean test -Dsurefire.suiteXmlFiles=testng.xml -Dtestng.testnames="${{ matrix.test_name }}"
+
+      - name: 📤 Upload Extent Report (${{ matrix.test_name }})
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: extent-report-${{ matrix.test_name }}
+          path: test-output/ExtentReports/ExtentReport.html
