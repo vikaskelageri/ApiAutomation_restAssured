@@ -39,8 +39,7 @@ jobs:
           # Use Maven Surefire/Failsafe plugin to target specific TestNG test names
           # Ensure your pom.xml uses maven-surefire-plugin (or failsafe) and configures it for TestNG
           # The '-Dtestng.testnames' property tells TestNG which <test> block(s) to run
-          mvn clean test -Dsurefire.suiteXmlFiles=testng.xml -Dtestng.testnames="${{ matrix.test_name }}"
-
+          mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/testng.xml -Dtestng.testnames="${{ matrix.test_name }}"
       - name: 📤 Upload Extent Report (${{ matrix.test_name }})
         if: always() # Run even if the test step fails to upload partial reports
         uses: actions/upload-artifact@v4
