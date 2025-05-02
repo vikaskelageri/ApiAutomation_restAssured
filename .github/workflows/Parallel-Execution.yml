@@ -25,7 +25,7 @@ jobs:
       - name: 📦 Build & Run Tests (${{ matrix.test_name }})
         run: |
           echo "Running TestNG <test> block: ${{ matrix.test_name }}"
-          mvn clean test -Dsurefire.suiteXmlFiles=testng.xml -Dtestng.testnames="${{ matrix.test_name }}"
+          mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/testng.xml -Dtestng.testnames="${{ matrix.test_name }}"
 
       - name: 📤 Upload Extent Report (${{ matrix.test_name }})
         if: always()

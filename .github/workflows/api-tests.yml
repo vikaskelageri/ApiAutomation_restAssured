@@ -71,10 +71,10 @@ jobs:
           cache: 'maven'
 
       - name: 📦 Build & Run Smoke Tests
-        run: mvn clean test -Dsurefire.suiteXmlFiles=testng.xml -Dtestng.testnames="smoke module"
+        run: mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/testng.xml -Dtestng.testnames="smoke module"
 
       - name: 📦 Build & Run Regression Tests
-        run: mvn clean test -Dsurefire.suiteXmlFiles=testng.xml -Dtestng.testnames="regression module"
+        run: mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/testng.xml -Dtestng.testnames="regression module"
 
       - name: 📤 Upload Extent Report (Smoke)
         if: always()
