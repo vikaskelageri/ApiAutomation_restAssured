@@ -1,32 +1,40 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 
-<suite name="suite">
+<suite name="suite" parallel="tests" thread-count="2">
 
     <test name="smoke module">
+        <parameter name="deleteids" value="1135"> </parameter>
         <groups>
             <run>
                 <include name="get"/>
-<!--                <include name="delete"/>-->
+
             </run>
         </groups>
         <classes>
             <class name="test.QuoteAPI"> </class>
 <!--            <class name="test.AgentAPI"> </class>-->
         </classes>
+
     </test>
 
-    <test name="regression module">
-        <groups>
-            <run>
-                <include name="delete">
+<!--    <test name="regression module">-->
+<!--        <groups>-->
+<!--            <run>-->
+<!--                <include name="delete">-->
 
-                </include>
-            </run>
-        </groups>
-        <classes>
-            <class name="test.QuoteAPI"> </class>
-        </classes>
-    </test>
+<!--                </include>-->
+<!--            </run>-->
+<!--        </groups>-->
+<!--        <classes>-->
+<!--            <class name="test.QuoteAPI"> </class>-->
+<!--        </classes>-->
+<!--    </test>-->
 
+<suite-files> </suite-files>
 
 </suite>
+
+
+
+
+

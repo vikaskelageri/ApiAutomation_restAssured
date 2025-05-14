@@ -40,4 +40,7 @@ public class ExtentTestListener implements ITestListener, ISuiteListener{
             ExtentReportManager.test.log(Status.INFO, "Response Body: " + response.getBody().asPrettyString());
         }
     }
+
+
+
 }

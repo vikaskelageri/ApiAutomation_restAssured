@@ -40,6 +40,9 @@ public class InvoicesAPI extends BaseTest {
                 .post(APIEndpoints.createCreditPay(208))
                 .then().spec(ResponseSpecs.defaultResponseSpec()).body("status",equalTo("success"));
 
+
+
+
     }
 
 

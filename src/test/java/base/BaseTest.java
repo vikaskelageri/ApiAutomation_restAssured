@@ -13,11 +13,11 @@ import java.nio.file.Paths;
 import java.util.Properties;
 
 public class BaseTest {
-    // No longer need static accessToken here, TokenManagement will hold it
+
     public static Properties config;
 
     @BeforeSuite(alwaysRun = true) // Ensure it runs even if groups are specified in suite XML
-    public void setupSuite() { // Renamed for clarity
+    public void setupSuite() {
         System.out.println("Running BeforeSuite setupSuite");
         try {
             config = ConfigManager.getConfig();
@@ -29,7 +29,7 @@ public class BaseTest {
                 System.out.println("Attempting to initialize token...");
                 TokenManagement.initializeToken();
                 System.out.println("Token initialization triggered.");
-                // Verify token was obtained (optional but good practice)
+
                 if (TokenManagement.getAccessToken() == null || TokenManagement.getAccessToken().isEmpty()) {
                     throw new RuntimeException("Authentication failed in @BeforeSuite. Token is null or empty.");
                 }
